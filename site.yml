@@ -9,6 +9,8 @@
     - packages-apt
     - sysctl
     - limits
+    - apparmor
+    # - selinux
     - netdata
 
 - hosts: isu1

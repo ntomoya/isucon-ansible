@@ -1,0 +1,11 @@
+---
+- name: Disable apparmor service
+  service:
+    name: apparmor
+    state: stopped
+    enabled: no
+  register: apparmor
+
+- name: Reboot
+  reboot:
+  when: apparmor.changed

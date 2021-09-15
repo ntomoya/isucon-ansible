@@ -1,0 +1,14 @@
+---
+- name: Install required package
+  yum:
+    name: libselinux-python
+    state: installed
+
+- name: Disable SELinux
+  selinux:
+    state: disabled
+  register: selinux
+
+- name: Reboot
+  reboot:
+  when: selinux.reboot_required
