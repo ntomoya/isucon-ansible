@@ -1,0 +1,13 @@
+---
+- name: Install redis packages
+  package:
+    name:
+      - redis-server
+      - redis-tools
+    state: latest
+
+- name: Enable redis service
+  service: >
+    name=redis
+    state=started
+    enabled=yes

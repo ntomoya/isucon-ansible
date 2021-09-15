@@ -1,0 +1,11 @@
+---
+- name: Install required packages with yum
+  yum:
+    name:
+      - curl
+      - tmux
+      - git
+      - wget
+      - vim
+    state: latest
+    update_cahce: yes

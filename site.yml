@@ -1,0 +1,37 @@
+---
+- hosts: all
+  # remote_user: isucon
+  remote_user: tomoya
+  become: yes
+  become_method: sudo
+
+  roles:
+    - packages-apt
+    - sysctl
+    - limits
+    - netdata
+
+- hosts: isu1
+  # remote_user: isucon
+  remote_user: tomoya
+  become: yes
+  become_method: sudo
+
+  roles:
+    # - redis
+
+- hosts: isu2
+  # remote_user: isucon
+  remote_user: tomoya
+  become: yes
+  become_method: sudo
+
+  roles:
+
+- hosts: isu3
+  # remote_user: isucon
+  remote_user: tomoya
+  become: yes
+  become_method: sudo
+
+  roles:

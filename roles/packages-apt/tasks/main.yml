@@ -1,0 +1,11 @@
+---
+- name: Install required packages with apt
+  apt:
+    name:
+      - curl
+      - tmux
+      - git
+      - wget
+      - vim
+    state: latest
+    update_cache: yes

@@ -1,0 +1,11 @@
+---
+- name: Install nginx
+  package: >
+    name=nginx
+    state=latest
+
+- name: Enable nginx service
+  service: >
+    name=nginx
+    state=started
+    enabled=yes

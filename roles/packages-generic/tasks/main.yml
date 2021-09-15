@@ -1,0 +1,10 @@
+---
+- name: Install required packages
+  package:
+    name:
+      - curl
+      - tmux
+      - git
+      - wget
+      - vim
+    state: latest

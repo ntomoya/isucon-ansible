@@ -1,0 +1,13 @@
+- name: Add or modify hard nofile limits for wildcard domain
+  pam_limits:
+    domain: '*'
+    limit_type: hard
+    limit_item: nofile
+    value: '65535'
+
+- name: Add or modify soft nofile limits for wildcard domain
+  pam_limits:
+    domain: '*'
+    limit_type: soft
+    limit_item: nofile
+    value: '65535'
