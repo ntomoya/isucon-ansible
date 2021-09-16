@@ -1,7 +1,6 @@
 ---
 - hosts: all
-  # remote_user: isucon
-  remote_user: tomoya
+  remote_user: isucon
   become: yes
   become_method: sudo
 
@@ -14,8 +13,7 @@
     - netdata
 
 - hosts: isu1
-  # remote_user: isucon
-  remote_user: tomoya
+  remote_user: isucon
   become: yes
   become_method: sudo
 
@@ -23,16 +21,14 @@
     # - redis
 
 - hosts: isu2
-  # remote_user: isucon
-  remote_user: tomoya
+  remote_user: isucon
   become: yes
   become_method: sudo
 
   roles:
 
 - hosts: isu3
-  # remote_user: isucon
-  remote_user: tomoya
+  remote_user: isucon
   become: yes
   become_method: sudo
 
