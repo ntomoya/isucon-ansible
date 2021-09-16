@@ -8,5 +8,6 @@
       - wget
       - vim
       - graphviz
+      - htop
     state: latest
     update_cache: yes

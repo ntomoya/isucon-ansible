@@ -8,4 +8,5 @@
       - wget
       - vim
       - graphviz
+      - htop
     state: latest
