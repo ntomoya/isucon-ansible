@@ -7,5 +7,6 @@
       - git
       - wget
       - vim
+      - graphviz
     state: latest
     update_cahce: yes
