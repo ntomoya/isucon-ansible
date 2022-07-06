@@ -12,6 +12,7 @@
     - limits
     - apparmor
     # - selinux
+    - alp
     - netdata
 
 - hosts: isu1

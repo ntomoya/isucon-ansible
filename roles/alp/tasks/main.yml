@@ -1,0 +1,23 @@
+---
+- name: Download alp
+  unarchive:
+    src: "https://github.com/tkuchiki/alp/releases/download/v1.0.9/alp_linux_amd64.tar.gz"
+    dest: /tmp
+    remote_src: yes
+
+- name: Install alp
+  copy:
+    src: /tmp/alp
+    dest: "/usr/local/bin"
+    remote_src: yes
+    mode: u=rwx,g=rx,o=rx
+
+- name: Obtain installed alp version
+  command: "{{ alp_install_dir }}/alp --version"
+  register: alp_version_out
+  check_mode: no
+  changed_when: no
+
+- name: Installed alp version
+  debug:
+    msg: "alp v{{ alp_version_out.stderr }}"
