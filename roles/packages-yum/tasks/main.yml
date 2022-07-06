@@ -9,5 +9,6 @@
       - vim
       - graphviz
       - htop
+      - percona-toolkit
     state: latest
     update_cahce: yes
