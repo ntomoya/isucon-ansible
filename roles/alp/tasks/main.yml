@@ -13,7 +13,7 @@
     mode: u=rwx,g=rx,o=rx
 
 - name: Obtain installed alp version
-  command: "{{ alp_install_dir }}/alp --version"
+  command: "/usr/local/bin/alp --version"
   register: alp_version_out
   check_mode: no
   changed_when: no
