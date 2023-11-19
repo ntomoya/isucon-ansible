@@ -1,0 +1,30 @@
+---
+- name: Register user variables
+  ansible.builtin.user:
+    name: "{{ ansible_user }}"
+    state: present
+  register: user_registered
+  become: false
+
+- name: Download pprotein archive
+  unarchive:
+    src: "https://github.com/ntomoya/pprotein/releases/download/1.2.2/pprotein_1.2.2_linux_amd64.tar.gz"
+    dest: "{{ user_registered.home }}"
+    remote_src: true
+  become: false
+
+- name: Install pprotein service
+  ansible.builtin.template:
+    src: "pprotein.service.j2"
+    dest: "/etc/systemd/system/pprotein.service"
+    mode: "0644"
+
+- name: Install pprotein-agent service
+  ansible.builtin.template:
+    src: "pprotein-agent.service.j2"
+    dest: "/etc/systemd/system/pprotein-agent.service"
+    mode: "0644"
+
+- name: Systemd daemon-reload
+  ansible.builtin.systemd_service:
+    daemon_reload: true

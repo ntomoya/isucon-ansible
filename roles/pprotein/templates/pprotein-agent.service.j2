@@ -1,0 +1,15 @@
+[Unit]
+Description=pprotein
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+User={{ ansible_user }}
+Group={{ ansible_user }}
+WorkingDirectory={{ user_registered.home }}
+Environment=PPROTEIN_GIT_REPOSITORY={{ user_registered.home }}/i
+ExecStart={{ user_registered.home }}/pprotein
+Restart=always

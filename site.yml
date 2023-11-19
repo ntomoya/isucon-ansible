@@ -12,6 +12,7 @@
     - go
     - gcp
     - tmux-conf
+    - pprotein
 
     - sysctl
     - limits
