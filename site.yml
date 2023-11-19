@@ -8,8 +8,11 @@
     - packages-apt
     # - epel
     # - packages-yum
-
     - go
+
+    - alp
+    - slp
+    - netdata
     - gcp
     - tmux-conf
     - pprotein
@@ -19,9 +22,6 @@
 
     - apparmor
     # - selinux
-
-    - alp
-    - netdata
 
 - hosts: isu1
   remote_user: isucon

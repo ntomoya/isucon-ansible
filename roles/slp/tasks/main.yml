@@ -1,0 +1,13 @@
+---
+- name: Download slp
+  unarchive:
+    src: "https://github.com/tkuchiki/slp/releases/download/v0.2.0/slp_linux_amd64.tar.gz"
+    dest: /tmp
+    remote_src: yes
+
+- name: Install slp
+  copy:
+    src: /tmp/slp
+    dest: "/usr/local/bin"
+    remote_src: yes
+    mode: u=rwx,g=rx,o=rx
