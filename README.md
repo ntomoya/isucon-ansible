@@ -1,5 +1,12 @@
 # ISUCON Ansible
 
+## Install requirements
+
+```bash
+$ ansible-galaxy install -r requirements.yml
+```
+
+
 ## Execute default roles
 
 ```bash

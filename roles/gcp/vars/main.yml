@@ -1,0 +1,4 @@
+---
+gcp_service_account_key_file: application_default_credentials.json
+main_config_file: config.yaml
+agent_type: ops-agent

@@ -8,6 +8,7 @@
     - packages-apt
     # - epel
     # - packages-yum
+    - gcp
     - sysctl
     - limits
     - apparmor

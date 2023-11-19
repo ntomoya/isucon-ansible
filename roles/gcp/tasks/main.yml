@@ -1,0 +1,20 @@
+---
+- name: Copy GCP key file
+  ansible.builtin.copy:
+    src: "{{ gcp_service_account_key_file }}"
+    dest: /etc/google/auth/
+    mode: "0400"
+
+- name: Set environment variable
+  ansible.builtin.lineinfile:
+    path: /etc/systemd/system.conf
+    regexp: '^DefaultEnvironment="GOOGLE_APPLICATION_CREDENTIALS='
+    line: 'DefaultEnvironment="GOOGLE_APPLICATION_CREDENTIALS=/etc/google/auth/{{ gcp_service_account_key_file }}"'
+
+- name: Systemd daemon-reload
+  ansible.builtin.systemd_service:
+    daemon_reload: true
+
+- name: Install Ops Agent
+  include_role:
+    name: googlecloudplatform.google_cloud_ops_agents

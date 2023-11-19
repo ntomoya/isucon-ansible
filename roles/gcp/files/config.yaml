@@ -1,0 +1,59 @@
+logging:
+  receivers:
+    systemd:
+      type: systemd_journald
+    nginx_access:
+      type: files
+      include_paths:
+        - /var/log/nginx/access.log
+    nginx_error:
+      type: nginx_error
+    mysql_error:
+      type: mysql_error
+    mysql_general:
+      type: mysql_general
+  processors:
+    parse_json:
+      type: parse_json
+      time_key: time
+      time_format: "%Y-%m-%dT%H:%M:%S%z"
+    set_http_request:
+      type: modify_fields
+      fields:
+        httpRequest.status:
+          move_from: jsonPayload.status
+          type: integer
+        httpRequest.requestUrl:
+          move_from: jsonPayload.uri
+        httpRequest.referer:
+          move_from: jsonPayload.referer
+          omit_if: jsonPayload.referer = "-"
+        httpRequest.requestMethod:
+          move_from: jsonPayload.method
+        httpRequest.responseSize:
+          move_from: jsonPayload.body_bytes
+        httpRequest.userAgent:
+          move_from: jsonPayload.ua
+        httpRequest.remoteIp:
+          move_from: jsonPayload.host
+    parse_systemd_json:
+      type: parse_json
+      field: MESSAGE
+  service:
+    pipelines:
+      default_pipeline:
+        receivers:
+          - systemd
+      nginx:
+        receivers:
+          - nginx_error
+      nginx_json:
+        receivers:
+          - nginx_access
+        processors:
+          - parse_json
+          - set_http_request
+      mysql:
+        receivers:
+          - mysql_error
+          - mysql_general
