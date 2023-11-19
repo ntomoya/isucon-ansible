@@ -1,0 +1,17 @@
+---
+- name: Download go archive
+  unarchive:
+    src: "https://go.dev/dl/go{{ go_version }}.linux-amd64.tar.gz"
+    dest: /tmp
+    remote_src: yes
+
+- name: Install go
+  copy:
+    src: "/tmp/go/"
+    dest: "/usr/local/go_"
+    remote_src: yes
+    mode: preserve
+
+- name: Install pprof
+  command: "/usr/local/go_/bin/go install github.com/google/pprof@latest"
+  become: no

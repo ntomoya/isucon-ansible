@@ -8,12 +8,17 @@
     - packages-apt
     # - epel
     # - packages-yum
+
+    - go
     - gcp
     - tmux-conf
+
     - sysctl
     - limits
+
     - apparmor
     # - selinux
+
     - alp
     - netdata
 
