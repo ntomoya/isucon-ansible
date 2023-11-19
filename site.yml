@@ -9,6 +9,7 @@
     # - epel
     # - packages-yum
     - gcp
+    - tmux-conf
     - sysctl
     - limits
     - apparmor
