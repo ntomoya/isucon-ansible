@@ -1,7 +1,7 @@
 ---
 - name: Download alp
   unarchive:
-    src: "https://github.com/tkuchiki/alp/releases/download/v1.0.9/alp_linux_amd64.tar.gz"
+    src: "https://github.com/tkuchiki/alp/releases/download/v1.0.21/alp_linux_amd64.tar.gz"
     dest: /tmp
     remote_src: yes
 
