@@ -10,5 +10,6 @@
       - graphviz
       - htop
       - percona-toolkit
+      - tree
     state: latest
     update_cache: yes
