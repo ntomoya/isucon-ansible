@@ -12,13 +12,15 @@
 
     - alp
     - slp
-    - netdata
     - gcp
     - tmux-conf
     - pprotein
 
     - sysctl
     - limits
+
+    - install_netdata_repository
+    - install_netdata_agent
 
     - apparmor
     # - selinux

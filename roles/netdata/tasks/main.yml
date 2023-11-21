@@ -1,8 +1,0 @@
----
-# Tasks file for Netdata
-
-- include_tasks: install.yml
-
-- include_tasks: configure.yml
-
-# - include_tasks: claim.yml
